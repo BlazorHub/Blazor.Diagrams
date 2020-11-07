@@ -22,9 +22,9 @@ namespace Blazor.Diagrams.Core.Default
                 {
                     DiagramManager.UnselectModel(sm);
                 }
-                else
+                else if (!sm.Selected)
                 {
-                    DiagramManager.SelectModel(sm, e.CtrlKey == false);
+                    DiagramManager.SelectModel(sm, !e.CtrlKey || !DiagramManager.Options.AllowMultiSelection);
                 }
             }
         }
